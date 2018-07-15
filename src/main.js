@@ -3,9 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+// import Jimp from 'jimp/browser/lib/jimp'
+let Jimp = require('jimp')
+Vue.prototype.$Jimp = Jimp
 
 Vue.config.productionTip = false
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

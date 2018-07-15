@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <div id="my_target"></div>
     <h2>Essential Links</h2>
     <ul>
       <li>
@@ -86,6 +87,24 @@
 <script>
 export default {
   name: 'HelloWorld',
+  mounted () {
+    this.$Jimp.read('https://tpc.googlesyndication.com/daca_images/simgad/8454867233327495675').then(function (lenna) {
+      lenna.resize(256, 256)
+        .quality(60)
+        .greyscale()
+        .getBase64(this.$Jimp.MIME_JPEG, function (err, src) {
+          let img = document.createElement('img')
+          img.setAttribute('src', src)
+
+          let target = document.getElementById('my_target')
+          target.appendChild(img)
+
+          console.log(err)
+        })
+    }.bind(this)).catch(function (err) {
+      console.error(err)
+    })
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
