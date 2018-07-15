@@ -99,7 +99,7 @@ export default {
           let target = document.getElementById('my_target')
           target.appendChild(img)
 
-          console.log(err)
+          err && console.log(err)
         })
     }.bind(this)).catch(function (err) {
       console.error(err)
