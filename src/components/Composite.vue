@@ -10,7 +10,7 @@
 export default {
   name: 'Composite',
   mounted () {
-    this.$Jimp.read('http://localhost:8080/static/images/example_01.jpg').then(function (lenna) {
+    this.$Jimp.read('https://makitosan.github.io/poc-jimp/static/images/example_01.jpg').then(function (lenna) {
       this.originalImage = lenna.clone()
       this.srcImage = lenna
       lenna.resize(700, 468)
@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     text_noto: function () {
-      this.$Jimp.read('http://localhost:8080/static/images/notosanscjkjp_black_700x468.png').then(function (text) {
+      this.$Jimp.read('https://makitosan.github.io/poc-jimp/static/images/notosanscjkjp_black_700x468.png').then(function (text) {
         this.srcImage = this.originalImage.clone()
         this.srcImage.resize(700, 468)
           .composite(text, 0, 0)
@@ -42,7 +42,7 @@ export default {
       })
     },
     text_mincho: function () {
-      this.$Jimp.read('http://localhost:8080/static/images/genkai_mincho_700x468.png').then(function (text) {
+      this.$Jimp.read('https://makitosan.github.io/poc-jimp/static/images/genkai_mincho_700x468.png').then(function (text) {
         this.srcImage = this.originalImage.clone()
         this.srcImage.resize(700, 468)
           .composite(text, 0, 0)

@@ -1,3 +1,7 @@
+# DEMO
+
+https://makitosan.github.io/poc-jimp/index.html#/
+
 # poc-jimp
 
 > A Vue.js project
