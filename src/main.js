@@ -3,7 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import Jimp from 'jimp'
+import Jimp from 'jimp/browser/lib/jimp'
+// console.log(Jimp)
 Vue.prototype.$Jimp = Jimp
 
 Vue.config.productionTip = false

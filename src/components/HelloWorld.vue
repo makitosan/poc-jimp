@@ -88,11 +88,12 @@
 export default {
   name: 'HelloWorld',
   mounted () {
-    this.$Jimp.read('https://tpc.googlesyndication.com/daca_images/simgad/8454867233327495675').then(function (lenna) {
+    //    this.$Jimp.read('https://tpc.googlesyndication.com/daca_images/simgad/8454867233327495675').then(function (lenna) {
+    Jimp.read('./static/images/example_01.jpg').then(function (lenna) {
       lenna.resize(256, 256)
         .quality(60)
         .greyscale()
-        .getBase64(this.$Jimp.MIME_JPEG, function (err, src) {
+        .getBase64(Jimp.MIME_JPEG, function (err, src) {
           let img = document.createElement('img')
           img.setAttribute('src', src)
 
@@ -101,7 +102,7 @@ export default {
 
           err && console.log(err)
         })
-    }.bind(this)).catch(function (err) {
+    }).catch(function (err) {
       console.error(err)
     })
   },

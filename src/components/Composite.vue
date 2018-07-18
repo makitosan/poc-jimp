@@ -10,11 +10,11 @@
 export default {
   name: 'Composite',
   mounted () {
-    this.$Jimp.read('https://makitosan.github.io/poc-jimp/static/images/example_01.jpg').then(function (lenna) {
+    Jimp.read('./static/images/example_01.jpg').then(function (lenna) {
       this.originalImage = lenna.clone()
       this.srcImage = lenna
       lenna.resize(700, 468)
-        .getBase64(this.$Jimp.MIME_PNG, function (err, src) {
+        .getBase64(Jimp.MIME_PNG, function (err, src) {
           this.imgNode = document.createElement('img')
           this.imgNode.setAttribute('src', src)
 
@@ -29,11 +29,11 @@ export default {
   },
   methods: {
     text_noto: function () {
-      this.$Jimp.read('https://makitosan.github.io/poc-jimp/static/images/notosanscjkjp_black_700x468.png').then(function (text) {
+      Jimp.read('./static/images/notosanscjkjp_black_700x468.png').then(function (text) {
         this.srcImage = this.originalImage.clone()
         this.srcImage.resize(700, 468)
           .composite(text, 0, 0)
-          .getBase64(this.$Jimp.MIME_PNG, function (err, src) {
+          .getBase64(Jimp.MIME_PNG, function (err, src) {
             this.imgNode.setAttribute('src', src)
             err && console.log(err)
           }.bind(this))
@@ -42,11 +42,11 @@ export default {
       })
     },
     text_mincho: function () {
-      this.$Jimp.read('https://makitosan.github.io/poc-jimp/static/images/genkai_mincho_700x468.png').then(function (text) {
+      Jimp.read('./static/images/genkai_mincho_700x468.png').then(function (text) {
         this.srcImage = this.originalImage.clone()
         this.srcImage.resize(700, 468)
           .composite(text, 0, 0)
-          .getBase64(this.$Jimp.MIME_PNG, function (err, src) {
+          .getBase64(Jimp.MIME_PNG, function (err, src) {
             this.imgNode.setAttribute('src', src)
             err && console.log(err)
           }.bind(this))
